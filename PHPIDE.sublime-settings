@@ -1,0 +1,19 @@
+{
+	"plugins": [
+		"Additional PHP Snippets",
+		"Alignment",
+		"BracketHighlighter",
+		"CTags",
+		"DocBlockr",
+		"Gist",
+		"Git",
+		"Goto Documentation",
+		"PHPUnit",
+		"Prefixr",
+		"Pretty JSON",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"TrailingSpaces",
+		"WordCount"
+	]
+}
