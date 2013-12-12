@@ -1,5 +1,6 @@
 {
 	"plugins": [
+		"Phix Color Scheme",
 		"Additional PHP Snippets",
 		"Alignment",
 		"BracketHighlighter",
