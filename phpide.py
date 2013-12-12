@@ -32,22 +32,23 @@ def add_to_path(path):
 
 # pull Package Control's files into our path
 pc_folder = os.path.join(sublime.packages_path(), 'Package Control')
-add_to_path(os.path.join(pc_folder, 'all'))
+add_to_path(pc_folder)
 
 # now we can load the Package Control code
-PackageControl = __import__('Package Control')
-
+os.chdir(pc_folder)
+from package_control.package_manager import PackageManager
 
 class PHPIDE(threading.Thread):
     def __init__(self):
-        self.manager = PackageControl.PackageManager()
+        self.manager = PackageManager()
         threading.Thread.__init__(self)
 
     def run(self):
         installed_packages = self.manager.list_packages()
         for plugin in Prefs.plugins:
+            print "- checking plugin " + plugin
             if not plugin in installed_packages:
                 self.manager.install_package(plugin)
 
 
-# sublime.set_timeout(lambda: PHPIDE().start(), 3000)
+sublime.set_timeout(lambda: PHPIDE().start(), 3000)
